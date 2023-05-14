@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		 <title>URL Rewriting</title>
+		<link rel="stylesheet" type="text/css" href="css/referatCSS1.css">
+		<script src="javascript/jquery-3.3.1.min.js"></script>
+		<script src="javascript/activeChange.js"></script>
+		<meta charset="UTF-8">
+	</head>
+	<body>
+			<h id="beginning">Пренаписване на URL адреси</h>
+			
+		<nav>
+			<ul class="menu">
+				<li><a href="#beginning">Начало</a></li>
+				<li><a href="#part1">1.Какво е URL и кои са съставящите го компоненти ?</a></li>
+				<li><a href="#part2">2.Въведение в URL пренаписването</a></li>
+				<li><a href="#part3">3.Какво е URL пренаписване ?</a></li>
+				<li><a href="#part4">4.Как се пренаписват URL адреси ?</a>
+				<li><a href="#part5">5.Пример от Wikipedia </a>
+				<li><a href="#part6">6.Условно пренаписване </a>
+				<li><a href="#part7">7.Пример от Amazon </a>
+				<li><a href="#part8">8."Приятелски" URLs </a>
+				<li><a href="#part9">9.Чек лист и отстраняване на проблеми </a>
+				<li><a href="#rules">10.Списъци и ресурси </a>
+			</ul>
+		</nav>
+		
+		<div class="main">
+			<section id="part1" name="part1">
+				<h1 class="title">1.Какво е URL и кои са съставящите го компоненти ?<a href="#resource1" class="links"><sup>[1.]</sup></a></h1>
+				<p class="paragraph">
+					<span class="tab"></span>Oще познат като уеб адрес, URL(Uniform Resource Locator) e форма на URI(Uniform Resource Identifier) 
+					и е стандартизиран начин за адресиране на документи, достъпни в Интернет(глобално) или Интранет(локално). 
+					Пример за URL е <a href="https://www.google.bg/" class="links">https://www.google.bg/</a>.
+					Нека да разгледаме сега следния URL <a class="links" href="https://www.computerhope.com/jargon/u/url.htm">
+					https://www.computerhope.com/jargon/u/url.htm</a> и да разясним кои са съставящите го компоненти.
+					
+					<br><br>
+					<span class="subtitle">http:// or https://</span>
+					<br><br>
+					
+					<span class="tab"></span>Съкращението „http“ е акроним на Hypertext Transfer Protocol. 
+					Така се предоставя инфомация на браузъра за това какъв протокол ще използва, за да достъпи информацията, уточнена в домейна. 
+					„Hypertext Transfer Protocol Secure“ или накратко „https“ индикира, че информацията пренесена през “http“ е криптирана и защитена. 
+					След „http“ или „https“ следват двоеточие  ( : ) и две наклонени черти ( // ), които разделят протокола от останалата част на адреса(URL). 
+					URL не се отнася експлицитно за HTTP или HTTPS адресите. FTP, TFTP, Telnet и други адреси също се смятат за URL и може да не следват същия
+					синтаксис като нашия пример.
+					<br><br>
+					<span class="subtitle">www.</span>
+					<br><br>
+					<span class="tab"></span>След вида на протокола следва „www“, което е съкратено от World Wide Web и се използва, за да се разграничи 
+					съдържанието. Тази част от URL адреса не е задължителна и може да не се пише. Например, ако напишем <a href="https://google.bg/" class="links">
+					http://google.bg</a> също ще ни изкара 
+					страницата на гугъл в бразъра. Този компонент също така може да бъде заменен зa някоя важна подстраница позната като 
+					поддомейн(subdomain).
+					<br><br>
+					<span class="subtitle">computerhope.com</span>
+					<br><br>
+					<span class="tab"></span>Следващата част от адреса е името на домейна за уеб страницата. 
+					Последната част от домейна е позната като наставка на домейна (domain suffix) или TLD(top-level domain) и се използва, 
+					за да се определи типа или местоположението на уебсайта. Например „.com“ е съкратено за commercial, “.org”- за organization, „co.uk“ е 
+					за Великобритания. Съществуват още много наставки на домейни. За да се вземе домейн, името трябва да се регистрира в регистратор за 
+					домейни(domain registrar) като GoDaddy, Dreamshot, Namecheap и други.
+					<br><br>
+					<span class="subtitle">/jargon/u/</span>
+					<br><br>
+					<span class="tab"></span>“jargon” и „u“ частта от URL адреса обозначават директориите, в които се намира уеб страницата в сървъра. 
+					В нашия пример уеб страницата се намира в две директории. Поради тази причина, ако искаме да намерим файла в сървъра, ще бъде в 
+					директорията /public_html/jargon/u. При повечето сървъри „public_html“ е директорията по подразбиране за HTML файловете. 
+					<br><br>
+					<span class="subtitle">url.htm</span>
+					<br><br>
+					<span class="tab"></span>В нашия пример URL адресът завършва с „url.htm“, което е самата страница, която гледаме в домейна. 
+					„.htm“ е файловото разширение на уеб страницата, което показва, че това е HTML файл. Други често стращани файлови разширения в Интернет са 
+					.php, .asp, .cgi, .xml, .jpg и .gif. Всяко от тях изпълнява различна функция по същия начин както и различните типове 
+					файлове в нашите компютри. 
+				</p>
+			
+				
+			</section>
+			<section id="part2" name="part2">
+				<h1 class="title">2.Въведение в URL пренаписването<a href="#resource2" class="links"><sup>[2.]</sup></a></h1>
+				<p class="paragraph">
+					<span class="tab"></span>Много Уеб компании прекарват множество агонизиращи часове, докато измислят възможно най-добрите домейн имена за 
+					техните клиенти. 
+					Те се опитват да намерят имена, които са уместни, звучат професионално, но също така и да се отличават, да се произнасят, 
+					запомнят и четат лесно, да изглеждат добре на визитки и т.н. 
+					<br>
+					<span class="tab"></span>Те прекарват цялото това време в измисляне на домейн име и по този начин пренебрегват останалата част от URL
+					адреса, елементът след името
+					на домейна. То също трябва да е уместно, професионално, запомнящо се, лесно за четене и произнасяне. По този начин се привличат повече 
+					клиенти и се подобрява позицията на уеб сайта в класирането на търсенията (search rankings).
+					За щастие съществува техниката пренаписване на URL адреси, която може да превърне невъобразими URL адреси в прилични такива и то с 
+					много по-малко 
+					усилия от това да се избере добро домейн име. Тя позволява да се попълват URL адреси с лесно четими ключови думи, без да се оказва 
+					влияние на структурата на страниците. 
+
+				</p>
+			</section>
+			
+			<section id="part3" name="part3">
+				<h1 class="title">3.Какво е URL пренаписване ?<a href="#resource2" class="links"><sup>[2.]</sup></a></h1>
+				<p class="paragraph">
+					<span class="tab"></span>Ако пишете писмо до банката, много е веоятно да отворите някоя текстообработваща програма и да създадете файл с име като
+					lettertobank.doc. Файлът e възможно да го сложите в директорията Documents и тогава пълният път до него ще e 
+					C:\Windows\users\web\Documents\lettertobank.doc или нещо подобно. Един път до файл=един документ.
+					<br>
+					<span class="tab"></span>Подобно, ако правите сайт за банка, може да създадете страница с име page1.html, да я качите и да насочите бразъра към един URL 
+					адрес=един ресурс. В този случай, ресурсът е физическа уеб страница, но може и да е страница или продукт направени на CMS 
+					(content management system).
+					<br>
+					<span class="tab"></span>Пренаписването на URL адреси променя всичко това. Тази техника позволява напълно да отделим URL адреса от ресурса.
+					С нея можем да пращаме потребителя 
+					до …/page1.html , …/about-us/ , …/about-this-website-and-me/ или до …/youll-never-find-out-about-me-hahaha-Xy2834/, а може и до всички тях.
+					Подобно е на преките пътища (shortcuts) или символичните връзки на нашия харддиск. Един URL адрес=един начин да се намери ресурс.
+					<br>
+					<span class="tab"></span>С помощта на URL пренаписването, URL адресът и ресурсът, към който води, може да са напълно независими един от друг.
+					В практиката те обикновено не са напълно независими: URL обикновено съдържа някакъв код, число или име и така се позволява на 
+					CMS(content management system) да намери ресурса. На теория обаче URL пренаписването осигурява точно това: абсолютна сепарация. 
+				</p>
+			</section>
+			<section id="part4" name="part4">
+				<h1 class="title">4.Как се пренаписват URL адреси ?<a href="#resource2" class="links"><sup>[2.]</sup></a></h1>
+				<p class="paragraph">
+					<span class="tab"></span>Дали ще можете да имплементирате пренаписването на URL адреси за уеб сайт зависи от уеб сървъра.При Apache обикновено има инсталиран модул 
+					за пренаписване на адреси (mod_rewrite). Настройката е много проста и е основата на всички последвали примери. ISAPI Rewrite е подобен модул за 
+					Windows ISS, но изисква заплащане (около 100$) и инсталация.
+					<br><br>
+					<span class="subtitle">Най-простият случай</span>
+					<br><br>
+					<span class="tab"></span>Най-простият случай на пренаписването на URL адреси е да се преименува единична статична уеб страница.  
+					За да се използва функцията за пренаписване на адреси на Apache, ще е нужно да създадете или да редактирате 
+					.htaccess файла в корена на документите на вашия уеб сайт(или по-малко обичайно в някоя поддиректория).
+					Например, ако имате уеб страница за коне, наименувана Xu8JuefAtua.htm, може да добавите следните редове в .htaccess.
+				</p>
+					<figure>
+						<div class="htaccesslines" id="rule1">RewriteEngine<span class="tab"></span>On<br>
+												RewriteRule<span class="tab"></span>horses.htm<span class="tab"></span>Xu8JuefAtua.htm</div>
+						<figcaption class="divcaptions">Правило 1: Най-простият случай</figcaption>
+					</figure>
+				<p class="paragraph">
+					<span class="tab"></span>Сега, ако я посетите, ще ви се покаже уеб страницата Xu8JuefAtua.htm. 
+					Освен това вашият браузър ще остане на horses.htm и така посетителите и търсачките никога няма да узнаят, 
+					че сте дали такова криптирано име на уеб страницата.
+					<br><br>
+					<span class="subtitle">Регулярни изрази</span>
+					<br><br>
+					<span class="tab"></span>При пренаписването на URL адресите е необходимо единствено да съответства на пътя в адреса без името на домейна или първата наклонена черта.
+					Правилото горе на практика казва на Apache, че ако пътят съдържа horses.htm, то трябва да покаже страницата Xu8JuefAtua.htm	.  
+					Това е малко проблемно, тъй като вие можете също да посетите reallyfasthorses.html и отново ще се покаже Xu8JuefAtua.htm.
+					Поради тази причина е необходимо да се направят следните промени в .htaccess.
+				</p>
+					<figure>
+						<div class="htaccesslines" id="rule2">RewriteEngine<span class="tab"></span>On<br>
+												RewriteRule<span class="tab"></span>^horses.htm$<span class="tab"></span>Xu8JuefAtua.htm</div>
+						<figcaption class="divcaptions">Правило 2: Регулярни изрази</figcaption>
+					</figure>
+				<p class="paragraph"><span class="tab"></span>^horses.htm$  не е просто низ за търсене, а регулярен израз, в който специални знаци като ^ | . | + | * | ? | ^ | ( ) | [ ] | { } и $ 
+					имат допълнително значение. ^ съответства на началото на пътя на адреса, а $-на края. Това показва, че пътят задължително трябва да 
+					започва и да завършва с horses.htm. Така единствено horses.htm ще проработи, а reallyfasthorses.htm или horses.html-няма. Това е важно за
+					търсачките като Google, които могат да санкционират това, което виждат като дублиращо се съдържание-идентични страници, които могат да се
+					достигат чрез множество URL адреси. 
+					<br><br>
+					<span class="subtitle">Без края на файловете</span>
+					<br><br>
+					<span class="tab"></span>Можете да подобрите още повече горния пример, ако дори не взимате под внимание края на файловете:
+				</p>
+					<figure>
+						<div class="htaccesslines" id="rule3">RewriteEngine<span class="tab"></span>On<br>
+												RewriteRule<span class="tab"></span>^horses/?$<span class="tab"></span>Xu8JuefAtua.html<span class="tab"></span>[NC]</div>
+						<figcaption class="divcaptions">Правило 3: Без края на файловете</figcaption>
+					</figure>
+				<p class="paragraph"><span class="tab"></span>Въпросителният индикира, че предният знак не е задължителен и по този начин URL адресът ще работи с или без наклонената черта накрая.
+					Тези адреси няма да се считат за дублиращи се от търсачката, но ще помогне да се предотврати объркване, ако някои хора несъзнателно 
+					добавят наклонена черта. [NC] в края на правилото дава на Apache допълнителни указания. Това е флаг, който показва, че правилото не се 
+					влияe от това дали буквите са малки или големи(case insensitive).
+				</p>
+			</section>
+					
+			<section id="part5" name="part5">
+				<h1 class="title">5.Пример от Wikipedia<a href="#resource2" class="links"><sup>[2.]</sup></a></h1>
+				<p class="paragraph">
+					<span class="tab"></span>Сега можем да разгледаме един реален пример. Wikipedia използва пренаписването на URL адреси като подава заглавето на страницата 
+					към PHP файл.
+					<a href="http://en.wikipedia.org/wiki/Barack_obama" class="links">http://en.wikipedia.org/wiki/Barack_obama</a>
+					се пренаписва до
+					<a href="http://en.wikipedia.org/w/index.php?title=Barack_obama" class="links">http://en.wikipedia.org/w/index.php?title=Barack_obama</a>
+					<br>
+					Това лесно може да се имплементира с .htaccess файл по следния начин:
+				</p>
+					<figure>
+						<div class="htaccesslines" id="rule4">RewriteEngine<span class="tab"></span>On<br>
+						#Look for the word "wiki" followed by a slash, and then the article title<br>
+						RewriteRule<span class="tab"></span>^wiki/(.+)$<span class="tab"></span>w/index.php?title=$1<span class="tab"></span>[L]</div>
+						<figcaption class="divcaptions">Правило 4: Пример от Wikipedia</figcaption>
+					</figure>
+				<p class="paragraph"><span class="tab"></span>Предишното правило имаше /?, което означава нула или една наклонена черта. Ако беше /+, щеше да означава една или повече наклонени черти.
+					В това правило точката ( . ) съответства на който и да е знак и следнователно .+ ще означава един или повече произволни знаци. 
+					С използването на скоби се иска от Apache да запомни какво означава .+ . След като изяснихме знаците вече може да си преведем горното 
+					правило – то казва на Apache да търси израз wiki/ последван от един или повече произволни знаци и да запомни какъв е.
+					Това бива запомнено и след това пренаписано като $1. Когато пренаписването приключи wiki/Barack_obama става w/index.php?title=Barack_obama.
+					w/index.php страницата се извиква и й се подава Barack_obama като параметър. w/index.php верятно е PHP страница, която
+					извършва търсене в базата данни-примерно
+				</p>
+					
+					<figure>
+						<div class="code" id="code1">SELECT * FROM articles WHERE title=‘Barack obama’</div>
+						<figcaption class="divcaptions">Код 1: Заявка до база данни на php страница на Wikipedia</figcaption>
+					</figure>
+					
+				<p class="paragraph">
+					-и след това извежда HTML файла.
+				</p>
+					
+					<figure>
+						<img src="img/1.png" alt="Trulli" style="width:55%" class="images" id="pic1">
+						<figcaption class="piccapitons">Снимка 1: Пренаписване на адрес в Wikipedia</figcaption>
+					</figure>
+				<p class="paragraph">
+					<br><br>
+					<span class="subtitle">Коментари и флагове</span>
+					<br><br>	
+					<span class="tab"></span>Горният пример също представя и коментарите. Всичко след знака # се игнорира от Apache затова е добра идея да обясните вашите правила
+					за пренаписване на URL адреси, за да бъдат разбрани от бъдещи поколения. [L] флагът означава, че ако това правило бъде изпълнено, Apache
+					може да спре своето изпълнение. В противен случай, Apache ще продължи да прилага още правила, което е много добра особеност, но нужна само
+					за най-сложните групи от правила.  
+				</p>
+			</section>
+			<section id="part6" name="part6">
+				<h1 class="title">6.Условно пренаписване<a href="#resource2" class="links"><sup>[2.]</sup></a></h1>
+				<p class="paragraph">
+				<span class="tab"></span>Пренаписването на URL адреси също така може да включва условия и да се възползва от променливите на средата. Тези две особености спомагат 
+				за лесното пренасочване на заявки от един домейн псевдоним до друг. Това е особено полезно, ако уебсайт промени своя домейн примерно от 
+				<a class="fakelinks">mywebsite.co.uk</a> до <a class="fakelinks">mywebsite.com</a>.
+				<br><br>
+				<span class="subtitle">Препращане на домейни(Domain forwarding)</span>
+				<br><br>
+					<span class="tab"></span>Повечето регистратори на домейни позволяват препращането на домейни, което пренасочва всички заявки от един домейн до друг, но е 
+					възможно примерно да се пращат заявки за <a class="fakelinks">www.mywebsite.co.uk/horses</a>
+					до началната страница на <a class="fakelinks">www.mywebsite.com</a> вместо до <a class="fakelinks">www.mywebsite.com/horses</a>. Можем да постигнем това като използваме пренаписването на 
+					URL адреси.
+				</p>
+					<figure>
+						<div class="htaccesslines" id="rule5">RewriteEngine<span class="tab"></span>On<br>
+						RewriteCond<span class="tab"></span>%{HTTP_HOST}<span class="tab"></span>!^www.mywebsite.com$<span class="tab"></span>[NC]<br>
+						RewriteRule<span class="tab"></span>(.*)<span class="tab"></span>http://www.mywebsite.com/$1<span class="tab"></span>[L,R=301]</div>
+						<figcaption class="divcaptions">Правило 5: Препращане на домейни</figcaption>
+					</figure>
+				<p class="paragraph">
+					<span class="tab"></span>Вторият ред в нашия пример е не толкова RewriteRule, колкото RewriteCond . Използва се, за да се сравни Apache променлива на средата 
+					отляво(като името на хоста в този случай) с регулярен израз отдясно. Само и единстевно ако това условие е варно, ще се вземе предвид 
+					правилото от следващия ред.<br>
+					<span class="tab"></span>Тука %{HTTP_HOST} представя <a class="fakelinks">www.mywebsite.co.uk</a>, хостът(т.е. домейна), който браузърът се опитва да посети. Удивителният знак означава 
+					отрицание. Това казва на Apache, ако хостът не започва и завършва с <a class="fakelinks">www.mywebsite.com</a>, да запомни и да пренапише нула или повече знаци, 
+					без значение какви са, до <a class="fakelinks">www.mywebsite.com/$1</a>. Това превръща <a class="fakelinks">www.mywebsite.co.uk/anything-at-all</a> до <a class="fakelinks">www.mywebsite.com/anything-at-all</a>.
+					Ще работи и за други домейн псевдоними като <a class="fakelinks">www.mywebsite.biz/anything-at-all</a> и <a class="fakelinks">mywebsite.com/anything-at-all</a>.<br>
+					<span class="tab"></span>Флагът [R=301] е много важен. Той казва на Apache да прави 301(т.е. постоянно) пренасочване. Apache ще прати новия URL обратно до 
+					браузъра или търсачката и те ще трябва да го заяват отново. Различно от всички примери горе, новият адрес ще се появи в лената за адреси 
+					(location bar//address bar) на браузъра. Така търсачките ще вземат предвид новия URL и ще обновят своята база от данни.[R] самостоятелно е 
+					същото като [R=302] и обозначава временно пренасочване.
+				<br><br>
+					<span class="subtitle">Файлово съществуване и Wordpress</span>
+				<br><br>
+				<span class="tab"></span>WordPress е един от най-популярните блогинг софтуери. Той позволява на автора да си избере собствен URL, който се нарича
+				“slug”(неоптимизирани линкове). След това WordPress вмъква датата по този начин
+				<a class="links" href="https://www.smashingmagazine.com/2011/09/05/getting-started-with-the-paypal-api/">https://www.smashingmagazine.com/2011/09/05/getting-started-with-the-paypal-api/</a>. 
+				Този блогинг софтуер използва доста често пренаписването на
+				URL адреси
+				</p>
+				<figure>
+					<img src="img/2.png" alt="Trulli" style="width:55%" class="images" id="pic2">
+					<figcaption class="piccapitons">Снимка 2: Собствен URL за статия в Wordpress</figcaption>
+				</figure>
+				<p class="paragraph">
+				<span class="tab"></span>WordPress позволява на автора да избира собствен URL за статия.
+				.htaccess файлът на WordPress изглежда по следния начин
+				</p>
+				<figure>
+					<div class="htaccesslines" id="rule6">RewriteEngine<span class="tab"></span>On<br>
+					RewriteBase<span class="tab"></span>/<br> 
+					RewriteCond<span class="tab"></span>%{REQUEST_FILENAME}<span class="tab"></span>!-f<br>
+					RewriteCond<span class="tab"></span>%{REQUEST_FILENAME}<span class="tab"></span>!-d<br>
+					RewriteRule<span class="tab"></span>.<span class="tab"></span>/index.php [L]</div>
+					<figcaption class="divcaptions">Правило 6: .htaccess файл на Wordpress</figcaption>
+				</figure>
+				<p class="paragraph">
+				 <span class="tab"></span>-f означава „това е файл“,а -d -“това е директория.” Тези редове казват на Apache, че ако файловото име в заявката не е файл и не е 
+				 директория, да пренапише всичко (т.е. всеки път, състоящ се от каквито и да е знаци) до страницата index.php. Ако заявявате съществуваща 
+				 картинка или страницата wp-login.php, тогава правилото няма да се задейства. Но ако заявката е нещо друго като 
+				 /2011/09/05/getting-started-with-the-paypal-api/ , тогава index.php минава на преден план.<br>
+				Вероятно тези страница index.php гледа променливата на средата $_SERVER[‘REQUEST_URI’] и извлича информацията, която й е нужна, за да
+				разбере какво трябва да търси. Това й дава дори повече гъвкавост отколкото	правилата за пренаписване на Apache и позволява на WordPress да 
+				имитира някои такива много сложни правила. Всъщност, ако имате уебстраница в WordPress, можете да отидете на Settings → Permalink  вляво и да
+				изберете типа на пренаписване на адреси, който тя да имитира. 
+				</p>
+				<figure>
+					<img src="img/3.png" alt="Trulli" style="width:55%" class="images" id="pic3">
+					<figcaption class="piccapitons">Снимка 3: Настройки за пренаписване на URL адреси в Wordpress</figcaption>
+				</figure>
+				<p class="paragraph">
+				<br><br>
+					<span class="subtitle">Пренаписване на query низове</span>
+				<br><br>
+				<span class="tab"></span>Ако сте наети да пресъздадете някоя съществуваща уебстраница отначало, можете да използвате пренаписването на адреси, за да пренасочите
+				20-те най-популярни URL адреса от стария уебсайт до новия.Примерно prod.php?id=20 да се пренасочва до products/great-product/2342, който пък
+				от своя страна - до действителната продуктова страница.<br>
+				Правилата на Apache за пренаписване на адреси се прилагат единствено върху пътя в URL, а не върху параметри като id=20. За да се извърши този
+				тип пренаписване, ще е нужно да се отнесете до Apache променливата %{QUERY_STRING}. Това може да се постигне по следния начин
+				</p>
+				<figure>
+					<div class="htaccesslines" id="rule7">RewriteEngine<span class="tab"></span>On<br>
+					RewriteCond<span class="tab"></span>%{QUERY_STRING}<span class="tab"></span>^id=20$<br>              
+					RewriteRule<span class="tab"></span>^prod.php$<span class="tab"></span>^products/great-product/2342$<span class="tab"></span>[L,R=301]<br>
+					RewriteRule<span class="tab"></span>^products/(.*)/([0-9]+)$<span class="tab"></span>^productview.php?id=$1</div>
+					<figcaption class="divcaptions">Правило 7: Пренаписване на query низове</figcaption>
+				</figure>
+				<p class="paragraph">
+				<span class="tab"></span>В този пример , първото правило задейства постоянно пренасочване от адреса на стария уебсайт до новия. Второто правило пранаписва новото 
+				URL до php страницата, която всъщност показва продукта.
+
+				</p>
+			</section>
+			<section id="part7" name="part7">
+				<h1 class="title">7.Пример от Amazon<a href="#resource2" class="links"><sup>[2.]</sup></a></h1>
+				<p class="paragraph">
+				<span class="tab"></span>За по-сложните уебсайтове, поддържащи много съдържание, все още е проблем това как да се свържат „приятелски“ URL адреси с основни ресурси. 
+				Простите примери по-горе правят това ръчно като асоциират URL като horses.htm с файла или ресурса Xu8JuefAtua.htm. Wikipedia търси ресурса въз 
+				основа на заглавието, а WordPress прилага някои сложни групи от вътрешни правила. Но какво става ако данните са по-сложни, с хиляди продукти в
+				стотици категории? Сега ще разгледаме какъв подход предприема може би най-големият сайт за пазаруване Amazon.<br>
+				<span class="tab"></span>Ако някога сте се натъквали на такъв адрес в Amazon <a class="links" href="http://www.amazon.co.uk/High-Voltage-AC-DC/dp/B00008AJL3">http://www.amazon.co.uk/High-Voltage-AC-DC/dp/B00008AJL3</a>, вероятно сте предположили, че
+				сайтът има поддиректория наименувана /High-Voltage-AC-DC/dp/, която съдържа файл B00008AJL3.
+				Това е много малко вероятно. Можете да се опитате да смените името на главната директория
+				<a class="links" href="http://www.amazon.co.uk/Test-Voltage-AC-DC/dp/B00008AJL3">http://www.amazon.co.uk/Test-Voltage-AC-DC/dp/B00008AJL3</a> и отново ще попаднете на същата страница.<br>
+				<span class="tab"></span>Значимата част е тази на края на адреса. B00008AJL3 е всъщност ASIN (Amazon Standard Identification Number) на този албум на AC/DC.
+				Ако промените този номер ще видите, че страницата няма да може да бъде намерена („Page not found“) или ще се появи напълно друг продукт B003BEZ7HI.<br>
+				<span class="tab"></span>Частта /dp/ също е от значение. Ако я промените също ще получите известие, че страницата не може да бъде намерена. Така че B00008AJL3 вероятно
+				казва на Amazon какво да покаже, а dp указва на уебсайта как да го покаже. Това е пренаписване на URLs като е вероятно оригиналният адрес накрая да
+				бива пренаписан до нещо подобно: <a class="fakelinks">http://www.amazon.co.uk/displayproduct.php?asin=B00008AJL3</a>.
+				<br><br>
+				<span class="subtitle">Особености на един Amazon URL</span>
+				<br><br>
+				<span class="tab"></span>Тука ще представим някои важни особености на един Amazon адрес, които могат да се приложат при всеки един уебсайт с много и сложни групи
+				от ресурси. Става ясно, че URL може да се генерира автоматично и да включва до 3 части:
+				<br><br>
+				<span class="subsubtitle">01.Думите</span> В случая горе, думите са базирани на албума и изпълнителя и всички знаци, които не са букви или цифри, биват заменени. Така
+				наклонената черта в AC/DC се променя на тире. Това е частта, която помага на хората и търсачките.
+				<br><br>
+				<span class="subsubtitle">02.ID номер</span> Или нещо подобно,което казва на уебсайта какво да търси, като B00008AJL3.
+				<br><br>
+				<span class="subsubtitle">03.Идентификатор</span> Или нещо подобно,което казва на уебсайта къде да търси и как да покаже информацията.
+				Ако dp казва на Amazon да търси 
+				продукт, тогава някъде по пътя вероятно и задейства ред за достъп до база данни като
+				<figure>
+					<div class="code" id="code2">SELECT * FROM products WHERE id='B00008AJL3'</div>
+					<figcaption class="divcaptions">Код 2: Примерен достъп до база данни в Amazon</figcaption>
+				</figure>
+				</p>
+			</section>
+			<section id="part8" name="part8">
+				<h1 class="title">8."Приятелски" URLs<a href="#resource2" class="links"><sup>[2.]</sup></a></h1>
+				<p class="paragraph">
+				<span class="tab"></span>Разбрахме как да свържем хубави URL адреси с основни уеб страници, но как изобщо се създават такива адреси?<br>
+				<span class="tab"></span>Ако следваме дадения съвет горе, ще разделяме думи с тирета вместо с долни черти и ще уголемяваме буквите постоянно. 
+				Малките букви биха били за предпочитане, защото повечето хора търсят с такива. Пунктуационните знаци като точки и запетаи също трябва 
+				да се преобразуват на тирета, защото в противен случай ще бъдат превърнати в нещо от сорта на %2C, което изглежда грозно и може да „счупи“ 
+				URL адреса при copy/paste. Също няма да е лошо да се премахнат изцяло апострофите и скобите по същата причина.<br>
+				<span class="tab"></span>Въпросът дали е нужно да се премахнат знаци с ударение е спорен. URLs с ударения (или всякакви знаци, които не са римски) е възможно да
+				изглеждат лошо или да се „счупят“, ако бъде променен знаковият им формат.Ако бъдат заменени с техни еквивалентни знаци без ударение обаче 
+				URL адресът може да стане по-труден за намиране от търсачките(и дори по-сложно, ако бъдат заменени с тирета).Примерно, ако вашият сайт е главно за
+				френски потребители, тогава можете да оставите знаците с ударение, но няма да е лошо да бъдат заменени, ако френските думи са малко и далече
+				една от друга на основно английски сайт.<br>
+				Следващата php функция се справя с предложенията по-горе:
+				</p>
+				<figure>
+					<div class="code" id="code3">function GenerateUrl ($s) {<br>
+					//Convert accented characters, and remove parentheses and apostrophes<br>
+					$from = explode (',', "ç,æ,œ,á,é,í,ó,ú,à,è,ì,ò,ù,ä,ë,ï,ö,ü,ÿ,â,ê,î,ô,û,å,e,i,ø,u,(,),[,],'");<br>
+					$to = explode (',', 'c,ae,oe,a,e,i,o,u,a,e,i,o,u,a,e,i,o,u,y,a,e,i,o,u,a,e,i,o,u,,,,,,');<br>
+					//Do the replacements, and convert all other non-alphanumeric characters to spaces<br>
+					$s = preg_replace ('~[^wd]+~', '-', str_replace ($from, $to, trim ($s)));<br>
+					//Remove a - at the beginning or end and make lowercase return strtolower (preg_replace ('/^-/', ’, preg_replace ('/-$/', ’, $s)));<br>
+					}</div>
+					<figcaption class="divcaptions">Код 3: php функция за промяна на URL адрес</figcaption>
+				</figure>
+				<p class="paragraph">
+				<span class="tab"></span>Тя ще генерира URLs като
+				</p>
+				<figure>
+					<div class="code" id="code4">echo GenerateUrl ("Pâtisserie (Always FRESH!)"); //returns "patisserie-always-fresh"</div>
+					<figcaption class="divcaptions">Код 4: Какво връща функцията от Код 3</figcaption>
+				</figure>
+				<p class="paragraph">
+				<span class="tab"></span>Или, ако желаете линк за $product променлива да бъде изваден от база данни 
+				</p>
+				<figure>
+					<div class="code" id="code5">
+						$product = array ('title'=>'Great product', 'id'=>100);
+						<xmp>echo '<a href="' . GenerateUrl ($product['title']) . '/' . $product['id'] . '">';</xmp><br>
+						echo $product['title'] . '</a>';</div>
+					<figcaption class="divcaptions">Код 5: Достъп до линк за продукт променлива от база данни</figcaption>
+				</figure>
+				</p>
+			</section>
+			<section id="part9" name="part9">
+				<h1 class="title">9.Чек лист и отстраняване на проблеми<a href="#resource2" class="links"><sup>[2.]</sup></a></h1>
+				<p class="paragraph">
+				<span class="tab"></span>Използвайте следния чек лист , за да имплементирате пренаписването на URL адреси:
+				<br><br>
+				<span class="subtitle">1.Проверете дали се поддържа URL пренаписването</span>
+				<br><br>
+				<span class="tab"></span>Не всички уеб сървъри поддържат тази техника. Ако поставите вашият .htaccess файл на такъв сървър, който не я поддържа, 
+				или ще бъде игнораран, или ще се покаже „500 Internal Server Error“.
+				<br><br>
+				<span class="subtitle">2.Планирайте подхода си</span>
+				<br><br>
+				<span class="tab"></span>Изяснете си какво с кое ще се свърже и как правилната информация все пак ще бъде намерена. Вероятно искате да представите нови 
+				URLs като my-great-product/p/123, които да заменят настоящите ви адреси на продукти като product.php?id=123 и да смените new-category/c/12 
+				за category.php?id=12.
+				<br><br>
+				<span class="subtitle">3. Създайте правилата за пренаписване</span> 
+				<br><br>				
+				<span class="tab"></span>Създайте .htaccess файл за вашите нови правила. Първоначално можете да го направите в /testing/ поддиректория и използвайки [R] флагът с
+				целта да видите къде отиват нещата
+				</p>
+				<figure>
+					<div class="htaccesslines" id="rule8">RewriteEngine On<br>
+					RewriteRule   ^.+/p/([0-9]+)   product.php?id=$1    [NC,L,R]<br>
+					RewriteRule   ^.+/c/([0-9]+)   category.php?id=$1    [NC,L,R]</div>
+					<figcaption class="divcaptions">Правило 8: Създаване на тестов .htaccess файл</figcaption>
+				</figure>
+				<p class="paragraph">
+				<span class="tab"></span>Сега, ако посетите <a class="fakelinks">www.mywebsite.com/testing/my-great-product/p/123</a> би трябвало да бъдете препратени до 
+				<a class="fakelinks">www.mywebsite.com/testing/product.php?id=123</a>. Ще видите, че страницата не може да бъде намерена, защото product.php не е във вашата /testing/ 
+				поддиректория, но поне ще знаете, че вашите правила работят. След приключване преместете .htaccess файлът в началната директория на сайта
+				(document root) и премахнете [R] флагът. Сега <a class="fakelinks">www.mywebsite.com/my-great-product/p/123</a> би трябвало да работи.
+				<br><br>
+				<span class="subtitle">4.Проверете вашите страници</span>
+				<br><br>
+				<span class="tab"></span>Тествайте дали вашите нови URLs извеждат всички правилни снимки, CSS и JavaScript файлове. Примерно вашият уеб браузър сега мисли, че вашата 
+				уеб страница е наименувана 123 и е в директория my-great-product/p/.Ако HTML се отнесе до файл с име images/logo.jpg, тогава браузърът ще 
+				направи заявка 	за снимката на <a class="fakelinks">www.mywebsite.com/my-great-product/p/images/logo.jpg</a> и това ще изведе “File not found.”
+				Ще е нужно и да пренапишете местоположението на снимките или да направите препратката абсолютна (като &ltimg src=”/images/logo.jpg”/&gt)или да 
+				поставите base href отгоре на &lthead&gt на страницата( &ltbase href=“/product.php”/&gt). Но ако направите така, ще е нужно изцяло да поясните 
+				всякакви вътрешни линкове, които започват с # или ?, защото в противен слуачй те ще водят до нещо като product.php#details.
+				<br><br>
+				<span class="subtitle">5.Променете вашите адреси</span>
+				<br><br>
+				<span class="tab"></span>Сега намерете всички препратки към вашите стари URLs и ги заменете с новите адреси, използвайки функция като GenerateUrl за консистентно 
+				създаване на нови URLs. Това е единствената стъпка, при която ще се наложи да разгледате обширно кода на вашия сайт.
+				<br><br>
+				<span class="subtitle">6.Автоматично пренасочете вашите стари адреси</span>
+				<br><br>
+				<span class="tab"></span>След като вече пренаписването на адреси е в действие, ще искате и Google да забрави за старите URLs и да започне да иползва новите. Т.е, 
+				когато резултат от търсене изведе product.php?id=20, ще желаете потребителят видимо да бъде препратен до my-great-product/p/123,
+				а my-great-product/p/123 после вътрешно да бъде препратен отново до product.php?id=20.
+				Това е обратното на това, което пренапсването на URL адреси вече прави. Всъщност можете да добавите друго правило в .htaccess файл,
+				за да постигнете това, но ако напишете правилата в грешен ред, вашият бразузър ще влезе в цикъл от пренасочвания.
+				Друг подход е да направите първото пренасочване в php като използвате подобна на CheckUrl функция
+				</p>
+				<figure>
+					<div class="code" id="code6">function CheckUrl ($s) {<br>
+					// Get the current URL without the query string, with the initial slash<br>
+					$myurl = preg_replace ('/?.*$/', ’, $_SERVER['REQUEST_URI']);<br>
+					//If it is not the same as the desired URL, then redirect if ($myurl != "/$s") {Header ("Location: /$s", true, 301); exit;}<br>
+					}</div>
+					<figcaption class="divcaptions">Код 6: Пренасочване чрез php функция</figcaption>
+				</figure>
+				<p class="paragraph">
+				<span class="tab"></span>Това има допълнителното предимство, че ако преименувате продукта, старият URL адрес моментално ще стане невалиден и ще се пренасочи 
+				към най-новият такъв.
+				<br><br>
+				<span class="subtitle">7.Обновете и пуснете отново карта на сайта</span>
+				<br><br>
+				<span class="tab"></span>Бъдете сигурни да пренесете новите URL адреси	до картата на сайта ви, отзивите за продукти и навсякъде другаде, където се появяват.
+				</p>
+			</section>
+			<section id="rules" name="rules">
+				<h1 class="endtitle">Правила за пренаписване на URL адреси</h1>
+				<p class="endparagraph">
+				[1.] <a class="endlinks" href="#rule1">Най-простият случай</a><br>
+				[2.] <a class="endlinks" href="#rule2">Регулярни изрази</a><br>
+				[3.] <a class="endlinks" href="#rule3">Без края на файловете</a><br>
+				[4.] <a class="endlinks" href="#rule4">Пример от Wikipedia</a><br>
+				[5.] <a class="endlinks" href="#rule5">Препращане на домейни</a><br>
+				[6.] <a class="endlinks" href="#rule6">.htaccess файл на Wordpress</a><br>
+				[7.] <a class="endlinks" href="#rule7">Пренаписване на query низове</a><br>
+				[8.] <a class="endlinks" href="#rule8">Създаване на тестов .htaccess файл</a>
+				</p>
+			</section>
+			<section id="pics" name="pics">
+				<h1 class="endtitle">Снимки</h1>
+				<p class="endparagraph">
+				[1.] <a class="endlinks" href="#pic1">Пренаписване на адрес в Wikipedia</a><br>
+				[2.] <a class="endlinks" href="#pic2">Собствен URL за статия в Wordpress</a><br>
+				[3.] <a class="endlinks" href="#pic3">Настройки за пренаписване на URL адреси в Wordpress</a><br>
+				</p>
+			</section>
+			<section id="codesnip" name="codesnip">
+				<h1 class="endtitle">Програмен код</h1>
+				<p class="endparagraph">
+				[1.] <a class="endlinks" href="#code1">Заявка до база данни на php страница на Wikipedia</a><br>
+				[2.] <a class="endlinks" href="#code2">Примерен достъп до база данни в Amazon</a><br>
+				[3.] <a class="endlinks" href="#code3">php функция за промяна на URL адрес</a><br>
+				[4.] <a class="endlinks" href="#code4">Какво връща функцията от Код 3</a><br>
+				[5.] <a class="endlinks" href="#code5">Достъп до линк за продукт променлива от база данни</a><br>
+				[6.] <a class="endlinks" href="#code6">Пренасочване чрез php функция</a>
+				</p>
+			</section>
+			<section id="resources" name="resources">
+				<h1 class="endtitle">Ресурси</h1>
+				<p class="endparagraph">
+				[1.] <a class="endlinks" href="http://www.computerhope.com/jargon/u/url.htm" class="links" id="resource1">http://www.computerhope.com/jargon/u/url.htm</a><br>
+				[2.] <a class="endlinks" href="http://coding.smashingmagazine.com/2011/11/02/introduction-to-url-rewriting/" class="links" id="resource2">
+				http://coding.smashingmagazine.com/2011/11/02/introduction-to-url-rewriting/</a>
+				</p>
+			</section>
+		</div>
+
+	</body>
+</html>
